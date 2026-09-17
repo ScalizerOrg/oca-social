@@ -82,8 +82,8 @@ class AccountMoveSendWizard(models.TransientModel):
         # mail.thread._message_create (extended by this module) can attach
         # them to the created ``mail.message``.
         wizard = self.with_context(
-            partner_cc_ids=self.partner_cc_ids.ids,
-            partner_bcc_ids=self.partner_bcc_ids.ids,
+            partner_cc_ids=self.partner_cc_ids,
+            partner_bcc_ids=self.partner_bcc_ids,
         )
         return super(AccountMoveSendWizard, wizard).action_send_and_print(
             allow_fallback_pdf=allow_fallback_pdf,
